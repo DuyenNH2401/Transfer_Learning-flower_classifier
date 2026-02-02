@@ -276,7 +276,7 @@ def load_model():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
     app_dir = os.path.dirname(os.path.abspath(__file__))
-    model_path = os.path.join(app_dir, "best_model.pt")
+    model_path = os.path.join(app_dir, "models", "best_model.pt")
     
     model = torch.load(model_path, map_location=device, weights_only=False)
     model.eval()
@@ -287,7 +287,7 @@ def load_model():
 def load_class_mapping():
     """Load the flower name mapping"""
     app_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(app_dir, "cat_to_name.json")
+    json_path = os.path.join(app_dir, "data", "cat_to_name.json")
     
     with open(json_path, 'r', encoding='utf-8') as f:
         cat_to_name = json.load(f)
